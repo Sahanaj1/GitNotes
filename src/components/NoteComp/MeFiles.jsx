@@ -1,28 +1,33 @@
 import { ClassNames } from "@emotion/react";
 import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography,Button,CardActions } from "@material-ui/core";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { posts } from "../../data";
 import { useStyles } from "../Headercomponents/HeaderStyles";
-const MeFiles = ({ props,sem}) => {
+const MeFiles = () => {
+
 //   function data(posts){
 //     return posts.filter((post)=>post.branch=="cs")
 //   }
 //   data()
+const [post,setPost]=useState([]);
+let currentPage;
     const classes=useStyles()
     useEffect(() => {
-      const needData = posts.filter((post) => post.branch == props)
-      console.log(needData, 'shri', sem)
-    },[])
+       currentPage = window.location.pathname;
+        console.log(currentPage);
+        var myKey = currentPage.substr(currentPage.length - 3);
+        const myNeededData = posts.filter((post) => post.key===myKey);
+        setPost(myNeededData[0])
+        console.log(myNeededData)
+    },[window.location.pathname])
    
   return (
+    
     <Grid container spacing={4} style={{justifyContent:"center",marginTop:"40px" }} sm={8} md={12}>
-     
-{posts.filter((post)=>post.branch==props && post.sem==sem )
-        .map((post)=>(
 <Grid key={post} style={{marginLeft:"70px",align:"center"}} xs={6} sm={5} md={5} >
  <Card sx={{ maxWidth: 345 }} style={{marginBottom:"30px"}}> 
-    {console.log(post)}
+   
       <CardContent style={{marginBottom:"30px",align:"center"}}>
         <Typography gutterBottom variant="h5" component="div">
           {post.title}
@@ -39,7 +44,6 @@ const MeFiles = ({ props,sem}) => {
       </CardActions>
     </Card>
           </Grid>
-      ))}
 
         </Grid>
 

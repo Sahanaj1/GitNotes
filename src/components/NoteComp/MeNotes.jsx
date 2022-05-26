@@ -16,7 +16,6 @@ export default function MeNotes({props,posts}) {
   };
 
 
-
 const links=[
     {
         id:1,
@@ -80,9 +79,7 @@ const links=[
     <Files props={"Third Sem ME"} sem={"3"}/>
     <Files props={"Fourth Sem ME"} sem={"4"}/>
     <Files props={"Fifth Sem ME"} sem={"5"}/> */}
-     {links.map(item=>(
- <MeFiles props={item.props} sem={item.id}/>
-    ))}
+ <MeFiles/>
     </Box>
         
      
