@@ -1,45 +1,54 @@
 import { makeStyles } from "@material-ui/core";
-
+import Image1 from "../../Images/bg.png"
 import { Theme } from '../Theme'
 export const useStyles = makeStyles((theme)=>({
-    HeaderWrapper:{
-     width:"100%",
-     minHeight:'90vh',
-     height:"auto",
-    backgroundColor:"white",
-     backgroundSize:"cover",
-     backgroundRepeat:"no-repeat",
-     color:Theme.colors.base2
-    },
-    HeaderContainer:{
-        width:"85%",
-     minHeight:'90vh',
-     height:"auto",
-     padding:"20px",
-     display:"flex",
+  HeaderWrapper:{
+    width:"100%",
+    minHeight:'90vh',
+    height:"auto",
+   marginTop:"150px",
+    // backgroundImage:`url(${Image1})`,
+    // backgroundSize:"small",
+    // backgroundRepeat:"no-repeat",
+    color:Theme.colors.base2
+   },
+ 
+   HeaderContainer:{
+       width:"85%",
+    minHeight:'90vh',
+    height:"auto",
+    padding:"20px",
+    display:"flex",
+    // marginTop:"-100px",
     
-     flexFlow:"column wrap",
-     justifyContent:"center",
-     fontFamily:"roboto"
-    },
-    headerTitle:{
-        fontSize:"3rem",
-        margin: theme.spacing(1, 0),
+    flexFlow:"column wrap",
+    justifyContent:"left",
+    fontFamily:"roboto"
+   },
+   headerTitle:{
+       fontSize:"3rem",
+       margin: theme.spacing(1, 0),
+       [theme.breakpoints.down("xs")]: {
+         fontSize: "2rem",
         
-        [theme.breakpoints.down("xs")]: {
-          fontSize: "2rem",
-         
-        },
-    },
-    headerDesc:{
-        fontSize:"2rem",
-        margin: theme.spacing(1, 0),
-    [theme.breakpoints.down("xs")]: {
-      fontSize: "1.5rem",
-      margin: theme.spacing(2, 0),
-      color:"black"
-    },
-    },
+       },
+   },
+   headerT:{
+     fontSize:"20px"
+   },
+//    headerBox:{
+//      marginTop:"-520px",
+// marginBottom:"-30px"
+//    },
+   headerDesc:{
+       fontSize:"2rem",
+       margin: theme.spacing(1, 0),
+   [theme.breakpoints.down("xs")]: {
+     fontSize: "1.5rem",
+     margin: theme.spacing(2, 0),
+     
+   },
+   },
     navbar:{
           backgroundColor:"white"
     },
@@ -97,6 +106,9 @@ export const useStyles = makeStyles((theme)=>({
           },
         },
       },
+      // new:{
+      //   padding:"10px"
+      // },
     
       //drewer style
       drawer: {
@@ -153,6 +165,31 @@ export const useStyles = makeStyles((theme)=>({
       // desc:{
       //   fontSize:"20px",
       //   margin:"10px"
+      // }
+      buttonBox:{
+        flexFlow:"column wrap",
+        padding:"20px",
+        minWidth:"10px"
+      },
+      buttonFile:{
+        margin:"10px",
+        minWidth:"10px"
+      },
+      buttonStyle:{
+        padding:"10px",
+        minWidth:"10px",
+        maxWidth:"20px",
+        border:"none",
+        margin:"10px",
+        backgroundColor:"white"
+        
+       
+      },
+      // imgNav:{
+      //   maxWidth:"30px",
+      //   maxHeight:"30px",
+      //  width:"10px",
+      //  height:"10px"
       // }
     }));
     

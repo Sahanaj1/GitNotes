@@ -68,22 +68,24 @@ import { Hidden } from '@material-ui/core';
 import MenuOpenRoundedIcon from "@material-ui/icons/MenuOpenRounded";
 import {Link} from "react-router-dom";
 import ArrowBack from '@material-ui/icons/ArrowBack';
-
+import "../Headercomponents/new.css"
+import Img1 from "../../Images/navimg.png"
 export default function NewNav({handleDrawerToggler}) {
     const classes=useStyles()
   return (
     <AppBar position="fixed" className={classes.navbar} style={{backgroundColor:"white"}} >
     <Toolbar className={classes.toolbar} color="blue">
      
-      <Typography variant="h5"  to="https://github.com/Sahanaj1"
+      <Typography variant="h5" 
       style={{ padding:"5px", margin:"5px",color:"black"}} >
         GITnotes
+        <img src={Img1} className="imgNav"/>
       </Typography>
 
 
       <Box component={Hidden} xsDown>
         <Box className={classes.new}>
-      <Link to="/" style={{textDecoration:"none",color:"black",fontSize:"20px"}}><ArrowBack/></Link>
+      <Link exact to="/" style={{textDecoration:"none",color:"black",fontSize:"20px"}}><ArrowBack/></Link>
       </Box>
       </Box>
       <Box component={Hidden} smUp>

@@ -23,8 +23,8 @@ component={Link}
 </IconButton>
 <Box className={classes.icons}>
    </Box>
-  <Typography variant='body1' component='h4'align="center" color="inherit" >
-Made by Sahana Joshi, All rights reserved @{date.getFullYear()}
+  <Typography variant='body1' component='h4'align="center" style={{color:"grey"}} >
+  © GitNotes. All rigths reserved @{date.getFullYear()}
 </Typography>
       </Box>
   )

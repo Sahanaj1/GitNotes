@@ -1,0 +1,17 @@
+@media screen and (min-width: 300px) {
+    .img{
+    max-width:600px;
+    height: auto;
+    width:50%;
+    margin-right: 100px;
+    size: 200px;
+    min-width:280px;
+    align-items: center;
+}
+
+.imgNav{
+    min-width:10px;
+    max-width: 40px;
+    size: relative;
+}
+}

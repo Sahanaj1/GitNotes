@@ -1,53 +1,74 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import {Box, Typography,Drawer} from '@material-ui/core';
 import { useStyles } from '../Headercomponents/HeaderStyles'
 import Files from './Files'
-import { posts } from '../../data';
+import { notesData } from '../../data';
 import { Link } from 'react-router-dom';
 import NewNav from './NewNav';
 import DrawerNew from './DrawerNew';
+import AllFiles from './AllFiles';
 
-export default function NoteComp({props,posts}) {
+export default function NoteComp({props,currentBranch}) {
   const classes=useStyles();
   const [initialState,setInitialState]=useState(false);
   const handleDrawerToggler=()=>{
     setInitialState(!initialState);
   };
+// console.log(notesData[currentBranch],"curr")
+   const currentBranchData = notesData[currentBranch];
+   const [semSelected, setSemSelected] = useState();
+   const [semData, setSemData] = useState({});
+   const[allBranchData,setAllBranchData]=useState([])
+   const sem = [3,4,5,6,7,8];
+   const renderAllSems = [];
+   const sub=[];
+  //  sem.map(item => renderAllSems.push(<h1>{item}</h1>))
 
+   useEffect(() => {
+    if(semSelected)
+      setSemData(currentBranchData['sem' + semSelected])
+    else 
+      setSemData(currentBranchData)
+     
+      
 
+   }, [semSelected])
+   
+   useEffect(() => {
+    if(semSelected){
+      for(let key in semData)
+      console.log(semData[key],"semData")
 
-// const links=[
-//     {
-//         id:1,
-//         link:'/cs/cs1'
-//     },
-//     {
-//         id:2,
-//         link:'/cs2'
-//     },
-//     {
-//         id:3,
-//         link:'/cs3'
-//     },
-//     {
-//         id:4,
-//         link:'/cs4'
-//     },
-//     {
-//         id:5,
-//         link:'/cs5'
-//     },
-//     {
-//         id:6,
-//         link:'/cs6'
-//     },
-// ]
+      // sub.push(semData[key])
+      // sub.map(item=><h1>{item}</h1>)
+      // console.log(sub);
+      
 
+      //  data= semData[key];
+//  console.log(data,"data")
+     }
 
+   }, [semData])
+
+   useEffect(()=>{
+     if(!semSelected){
+       const temp=[];
+      //  console.log(currentBranchData, 'current branch data')
+       for(let key in currentBranchData)
+       temp.push(currentBranchData[key]);
+      //  console.log(temp);
+setAllBranchData(...temp)
+      // console.log(currentBranchData[key],"curre branch data");
+     }
+   },[])
+
+  useEffect(()=>{
+    // console.log(allBranchData,"allbranch");
+  },[allBranchData])
   return (
    <>
    
-    <Box className={classes.HeaderWrapper} id="Header">
+    <Box className={classes.HeaderWrapper} style={{alignItems:"center"}} id="Header">
    
        <NewNav handleDrawerToggler={handleDrawerToggler}/>
       
@@ -58,62 +79,11 @@ export default function NoteComp({props,posts}) {
     <Box style={{justifyContent:"center"}}>
     <Typography style={{color:"black",justifyContent:"center",marginBottom:"40px",marginTop:"-60px",marginLeft:"50px"}} align="center" variant="h4">{props}</Typography>
     <Typography style={{color:"black",justifyContent:"center",marginBottom:"80px",marginLeft:"50px"}} align="center" variant="body">
-       {
-           props=="Computer Science"? 
-           <>
-           {/* <Link to="/cs/cs1"style={{textDecoration:"none",margin:"20px",color:"black"}} >1</Link> */}
-           {/* <Link to="/cs/cs2" style={{textDecoration:"none",margin:"20px",color:"black"}}>2</Link>
-           <Link to="/cs/cs3" style={{textDecoration:"none",margin:"20px",color:"black"}}>3</Link>
-           <Link to="/cs/cs4" style={{textDecoration:"none",margin:"20px",color:"black"}}>4</Link>
-           <Link to="/cs/cs5" style={{textDecoration:"none",margin:"20px",color:"black"}}>5</Link>
-           <Link to="/cs/cs6" style={{textDecoration:"none",margin:"20px",color:"black"}}>6</Link> */}
-           </>
-           :
-           props=="Electronics and Communication"  ?
-           <>
-           <Link to="/ec/ec1"style={{textDecoration:"none",margin:"20px",color:"black"}} >1</Link>
-           <Link to="/ec/ec2" style={{textDecoration:"none",margin:"20px",color:"black"}}>2</Link>
-           <Link to="/ec/ec3" style={{textDecoration:"none",margin:"20px",color:"black"}}>3</Link>
-           <Link to="/ec/ec4" style={{textDecoration:"none",margin:"20px",color:"black"}}>4</Link>
-           <Link to="/ec/ec5" style={{textDecoration:"none",margin:"20px",color:"black"}}>5</Link>
-           <Link to="/ec/ec6" style={{textDecoration:"none",margin:"20px",color:"black"}}>6</Link>
-           </>
-           :
-           props=="Mechanical Engineering"   ?
-           <>
-           <Link to="/me/me1"style={{textDecoration:"none",margin:"20px",color:"black"}} >1</Link>
-           <Link to="/me/me2" style={{textDecoration:"none",margin:"20px",color:"black"}}>2</Link>
-           <Link to="/me/me3" style={{textDecoration:"none",margin:"20px",color:"black"}}>3</Link>
-           <Link to="/me/me4" style={{textDecoration:"none",margin:"20px",color:"black"}}>4</Link>
-           <Link to="/me/me5" style={{textDecoration:"none",margin:"20px",color:"black"}}>5</Link>
-           <Link to="/me/me6" style={{textDecoration:"none",margin:"20px",color:"black"}}>6</Link>
-           </>
-           :
-           props=="Civil Engineering"  ?
-           <>
-           <Link to="/cv/cv1"style={{textDecoration:"none",margin:"20px",color:"black"}} >1</Link>
-           <Link to="/cv/cv2" style={{textDecoration:"none",margin:"20px",color:"black"}}>2</Link>
-           <Link to="/cv/cv3" style={{textDecoration:"none",margin:"20px",color:"black"}}>3</Link>
-           <Link to="/cv/cv4" style={{textDecoration:"none",margin:"20px",color:"black"}}>4</Link>
-           <Link to="/cv/cv5" style={{textDecoration:"none",margin:"20px",color:"black"}}>5</Link>
-           <Link to="/cv/cv6" style={{textDecoration:"none",margin:"20px",color:"black"}}>6</Link>
-           </>
-           :
-           props=="First Year"  ?
-           <>
-           <Link to="/first/p"style={{textDecoration:"none",margin:"20px",color:"black"}} >1</Link>
-           <Link to="/first/c" style={{textDecoration:"none",margin:"20px",color:"black"}}>2</Link>
-          
-           </>
-           :
-           <h1>hello</h1>
-           
-       }
-
-
-
+       <button className={classes.buttonStyle} onClick={()=> setSemSelected(undefined)}> All </button>
+      { sem.map(item => <button className={classes.buttonStyle} onClick={() => setSemSelected(item)}> {item} </button>) }
+      {  semSelected ? <h1> <Files notes={semData}/> </h1> : <AllFiles setSemSelected={setSemSelected} first={"First Year"} branch={currentBranch} notes={currentBranchData}/>}
     </Typography>
-    <Files />
+    {/* <Files notes={semData} /> */}
     </Box>
         
      

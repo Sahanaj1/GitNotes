@@ -1,40 +1,98 @@
 import { ClassNames } from "@emotion/react";
-import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography,Button,CardActions } from "@material-ui/core";
+import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography,Button,CardActions,Box } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { posts } from "../../data";
+import { useEffect, useState } from "react";
 import { useStyles } from "../Headercomponents/HeaderStyles";
-const Files = ({ post,props,num,id}) => {
-  function data(posts){
-    return posts.filter((post)=>post.branch=="cs")
-  }
+const Files = ({ notes}) => {
+const [data,setData]=useState([]);
     const classes=useStyles()
+    let dataNew;
+    const [subjectData, setSubjectData] = useState([])
+
+// console.log(notes,"notes");
+    useEffect(()=>{
+      
+        // for(let key in notes)
+        // setData(notes[key])
+        // console.log(notes,"notes[key]")
+      //   dataNew=notes[key];
+      //   setData(dataNew)
+     
+      // console.log(dataNew,"files")
+      const sub = [];
+      for(let key in notes){
+        sub.push(notes[key])
+        // console.log(notes[key]);
+      }
+      setSubjectData(sub)
+      console.log(sub, 'in array form');
+
+    //  sub.map(item=>console.log(item.subjectName,item.subjectCode,"item map"))
+      // notes.map(item=>console.log(item,"notes map"))
+     
+    },[notes])
+
+    useEffect(()=>{
+// console.log(subjectData,"subject data console")
+subjectData.map(item=>{console.log(item.subjectName,item.subjectCode,"mapitem")})
+    },[setSubjectData])
+
   return (
     <Grid container spacing={4} style={{justifyContent:"center",marginTop:"40px" }} sm={8} md={12}>
      
-{posts.filter((post)=>post.branch==props   )
-        .map((post)=>(
-<Grid key={post.id} style={{marginLeft:"70px",align:"center"}} xs={6} sm={5} md={5} >
- <Card sx={{ maxWidth: 345 }} style={{marginBottom:"30px"}}> 
-    
-      <CardContent style={{marginBottom:"30px",align:"center"}}>
-        <Typography gutterBottom variant="h5" component="div">
-          {post.title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-         {post.desc}
-        </Typography>
-      </CardContent>
-      <CardActions>
-        <Button size="small">
-          {/* <a href="https://drive.google.com/file/d/1PTzgkN7cuq1wgsL6e6YV7frzvqmoC1wx/view?usp=sharing">Click</a> */}Download
-        </Button>
-    
-      </CardActions>
-    </Card>
-          </Grid>
-      ))}
+{subjectData.map(item=>(
+   <Grid  style={{marginLeft:"70px",align:"center"}} xs={6} sm={5} md={5} >
+   <Card sx={{ maxWidth: 345 }} style={{marginBottom:"30px"}}> 
+      
+        <CardContent style={{marginBottom:"30px",align:"center"}}>
+          <Typography gutterBottom variant="h5" component="div">
+         {item.subjectName}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+          {item.subjectCode}
+          </Typography>
+          <Box className={classes.buttonBox}>
+          <Button size="small" className={classes.buttonFile} href={item.mod1link}>
+         {item.mod1}
+          </Button>
+          <Button size="small" className={classes.buttonFile} href={item.mod2link} >
+          {item.mod2}
+          
+          
+          </Button>
+          <Button size="small" className={classes.buttonFile} href={item.mod3link}>
+          
+          {item.mod3}
+          
+          </Button>
+          <Button size="small" className={classes.buttonFile} href={item.mod4link}>
+          
+          {item.mod4}
+          
+          </Button>
+          <Button size="small" className={classes.buttonFile} href={item.mod5link}>
+          
+          {item.mod5}
+          
+          </Button>
+          </Box>
+        </CardContent>
+        <CardActions>
+         
+      
+        </CardActions>
+      </Card>
+            </Grid>
+))
 
-        </Grid>
+}
+     
+
+       
+
+ 
+ </Grid>
 
   );
 };

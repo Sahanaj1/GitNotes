@@ -46,7 +46,7 @@ export default function ContactUs() {
 
 <Grid item xs={12} sm={7}>
 <Grid container  className={classes.contact}>
-    {RenderSectionHeading({smallText:"Contact", heading:"Contact Us!", description:"",alignCenter:true})}
+    {RenderSectionHeading({smallText:"Contact", heading:"Feedback", description:"We would love to hear your thoughts or feedback on how we can improve your experience!",alignCenter:true})}
     <br/>
     </Grid> 
 <form onSubmit={handleSubmit}>

@@ -6,9 +6,13 @@ export const useStyles = makeStyles((theme)=>({
     section:{
         backgroundColor:Theme.colors.base2,
         padding:theme.spacing(10,0,8,0),
+        
     },
     sectionDark:{
         backgroundColor:Theme.colors.base2,
+        maxWidth:"1280px",
+        minWidth:"300px",
+        marginTop:"50px"
     },
     divider:{
         width:"65px",
@@ -48,10 +52,14 @@ export const useStyles = makeStyles((theme)=>({
       },
     
       // # portfolio section
+      container:{
+        maxWidth:"100%",
+        minWidth:"10px",
+       width:"100%"
+      },
+
       imageContainer: {
-        
         position: "relative",
-        marginBottom: "20px",
         "&:hover $imageOverlay": {
           opacity: 1,
         },
@@ -100,6 +108,8 @@ export const useStyles = makeStyles((theme)=>({
         color: Theme.colors.base1,
         padding: theme.spacing(2),
         position: "relative",
+      
+
       },
       iconButton: {
         position: "absolute",
@@ -154,6 +164,6 @@ export const useStyles = makeStyles((theme)=>({
       },
       visit:{
         color:"black",
-        backgroundColor:"grey"
+        backgroundColor:"white"
       }
 }))

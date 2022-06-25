@@ -4,7 +4,7 @@ function Reg() {
   console.log("reg")
   return (
     <div>
-      <Link to="/notes">Click me</Link>
+      <Link to="/">Click me</Link>
     </div>
   )
 }

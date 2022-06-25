@@ -39,7 +39,7 @@ export default function Notes() {
         {
             url:img5,
             title:"Information science",
-            link:'/cs'
+            link:'/is'
         },
         {
             url:img6,
@@ -53,7 +53,7 @@ export default function Notes() {
 <>
    
 
-           <Box className={classes.sectionDark} id="notes">
+           <Box className={classes.sectionDark} id="notes"  >
              <Grid container style={{display:"flex",
             justifyContent:"center",
             alignContent:"center"}}>
@@ -62,12 +62,12 @@ export default function Notes() {
                  </Grid>
              </Grid>
             
-             <Container maxWidth="xl">
-                 <Grid container spacing={2}>
+             <Container maxWidth="1200px" minWidth="30px"  className={classes.container}>
+                 <Grid container spacing={2} maxWidth="sm" minWidth="xs" >
                      {projectData.map((item,i)=><Grid item xs={6} sm={6}lg={4} key={i}>
-                     <Box className={classes.imageContainer}  variant='link' href={item.link} >
-                            <img src={item.url} alt={item.title} className={classes.responsiveImg} variant='link' href={item.link}/>  
-                            <Link to={item.link} style={{textDecoration:"none"}}><Button key={item.id} className={classes.visit}>{item.title}</Button></Link>
+                     <Box className={classes.imageContainer}  variant='link' href={item.link}    >
+                     <Link to={item.link} style={{textDecoration:"none"}}>  <img src={item.url} alt={item.title} className={classes.responsiveImg} variant='link' href={item.link}/>   </Link>
+                            <Typography key={item.id}>{item.title}</Typography>
                      </Box>
                  </Grid> )}
                  
@@ -80,5 +80,5 @@ export default function Notes() {
   )
 }
 
-
+{/* <Button key={item.id} className={classes.visit}>{item.title}</Button> */}
 
