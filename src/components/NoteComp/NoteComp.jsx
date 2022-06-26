@@ -71,31 +71,18 @@ setAllBranchData(...temp)
     <Box className={classes.HeaderWrapper} style={{alignItems:"center"}} id="Header">
    
        <NewNav handleDrawerToggler={handleDrawerToggler}/>
-      
     <DrawerNew initialState={initialState} handleDrawerToggler={handleDrawerToggler}/>
-    
-    <Box className={classes.HeaderContainer1}>
-  
     <Box style={{justifyContent:"center"}}>
-    <Typography style={{color:"black",justifyContent:"center",marginBottom:"40px",marginTop:"-60px",marginLeft:"50px"}} align="center" variant="h4">{props}</Typography>
-    <Typography style={{color:"black",justifyContent:"center",marginBottom:"80px",marginLeft:"50px"}} align="center" variant="body">
+    <Typography style={{color:"black",justifyContent:"center",marginBottom:"40px",marginTop:"80px",marginLeft:"30px"}} align="center" variant="h4">{props}</Typography>
+    <Typography style={{color:"black",justifyContent:"center",marginBottom:"80px",marginLeft:"30px"}} align="center" variant="body">
        <button className={classes.buttonStyle} onClick={()=> setSemSelected(undefined)}> All </button>
+       
       { sem.map(item => <button className={classes.buttonStyle} onClick={() => setSemSelected(item)}> {item} </button>) }
-      {  semSelected ? <h1> <Files notes={semData}/> </h1> : <AllFiles setSemSelected={setSemSelected} first={"First Year"} branch={currentBranch} notes={currentBranchData}/>}
+      {  semSelected ? <> <Files notes={semData}/> </> : <div style={{marginLeft:"430px"}}>
+        <AllFiles setSemSelected={setSemSelected} first={"First Year"} branch={currentBranch} notes={currentBranchData}/></div> }
     </Typography>
-    {/* <Files notes={semData} /> */}
     </Box>
-        
-     
-      </Box>
-    
-      {/* <img src={Image} minHeight="90vh" height="auto" width="100%" backgroundSize="cover" backgroundRepeat="no-repeat"/> */}
-      
-     
     </Box>
- 
-    
-
   </>
   )
 }

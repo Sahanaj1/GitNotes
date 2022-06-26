@@ -5,8 +5,10 @@ export const useStyles = makeStyles((theme)=>({
   HeaderWrapper:{
     width:"100%",
     minHeight:'90vh',
-    height:"auto",
-   marginTop:"150px",
+    // height:"200px",
+   marginTop:"70px",
+ 
+   backgroundColor:"white",
     // backgroundImage:`url(${Image1})`,
     // backgroundSize:"small",
     // backgroundRepeat:"no-repeat",
@@ -123,16 +125,21 @@ export const useStyles = makeStyles((theme)=>({
       listItem: {
         color: Theme.colors.base3,
       },
-      HeaderContainer1:{
-        marginBottom:"70px",
-          width:"85%",
-       minHeight:'90vh',
-       height:"auto",
-      marginTop:"150px",
-       justifyContent:"center",
-       fontFamily:"roboto",
+      // HeaderContainer1:{
+      //   marginBottom:"70px",
+      //     width:"85%",
+      //  minHeight:'90vh',
+      //  height:"auto",
+      // marginTop:"150px",
+      //  justifyContent:"center",
+      //  fontFamily:"roboto",
      
       
+      // },
+      allFiles:{
+        width:"100px",
+        // marginLeft:"150px",
+        minMargin:"20px"
       },
       posts:{
         flexFlow:"cloumn wrap",

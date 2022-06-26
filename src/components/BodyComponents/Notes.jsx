@@ -48,7 +48,7 @@ export default function Notes() {
         },
     ]
     console.log("clicked")
-
+const user=true
     return(
 <>
    
@@ -66,6 +66,7 @@ export default function Notes() {
                  <Grid container spacing={2} maxWidth="sm" minWidth="xs" >
                      {projectData.map((item,i)=><Grid item xs={6} sm={6}lg={4} key={i}>
                      <Box className={classes.imageContainer}  variant='link' href={item.link}    >
+                        
                      <Link to={item.link} style={{textDecoration:"none"}}>  <img src={item.url} alt={item.title} className={classes.responsiveImg} variant='link' href={item.link}/>   </Link>
                             <Typography key={item.id}>{item.title}</Typography>
                      </Box>

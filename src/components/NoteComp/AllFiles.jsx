@@ -3,6 +3,7 @@ import { Card, CardActionArea, CardContent, CardMedia, Grid, Typography,Button,C
 import { Link } from "react-router-dom";
 import { posts } from "../../data";
 import { useEffect, useState } from "react";
+import "../Headercomponents/new.css"
 import { useStyles } from "../Headercomponents/HeaderStyles";
 const AllFiles = ({ setSemSelected,notes,first,branch}) => {
 const [data,setData]=useState([]);
@@ -27,38 +28,54 @@ useEffect(()=>{
 
 
   return (
-    <Grid container spacing={4} style={{justifyContent:"center",marginLeft:"90px",marginTop:"40px",backgroundColor:"black"}} sm={8} md={12}>
-     
+
+    // <Grid container spacing={4} style={{justifyContent:"center",width:"90%",backgroundColor:"black",marginTop:"40px"}} sm={8} md={12}>
+     <div>
+
+    
 {subjectData.map((item, key)=> {
-  return (<Grid  style={{margin:"10px",marginRight:"100px",align:"center",width:"30px"}} xs={6} sm={5} md={5} >
- <Card sx={{ maxWidth: 345 }} style={{marginBottom:"30px",width:"250px",}}> 
+//   return (<Grid  style={{margin:"10px",marginRight:"100px",align:"center",width:"30px",marginLeft:"50px"}} xs={6} sm={5} md={5} >
+//  <Card sx={{ maxWidth: 345 }} style={{marginBottom:"30px",width:"250px",}}> 
    
-      <CardContent style={{marginBottom:"30px",align:"center"}}>
+//       <CardContent style={{marginBottom:"30px",align:"center"}}>
          
-        <Typography gutterBottom variant="h5" component="div">
-   {console.log(item)}
-     <Button size="medium" onClick={()=>setSemSelected(key+3)}>
-     <Typography gutterBottom variant="h5" component="div">
-     {branch} semester {key+3} 
-     {/* {item} */}
-         </Typography>
-        </Button>
-        </Typography>
+//         <Typography gutterBottom variant="h5" component="div">
+//    {console.log(item)}
+//      <Button size="medium" onClick={()=>setSemSelected(key+3)}>
+//      <Typography gutterBottom variant="h5" component="div">
+//      {branch} semester {key+3} 
+//      {/* {item} */}
+//          </Typography>
+//         </Button>
+//         </Typography>
        
-      </CardContent>
-      <CardActions>
+//       </CardContent>
+//       <CardActions>
 
 
-      </CardActions>
-    </Card>
-          </Grid>
+//       </CardActions>
+//     </Card>
+//           </Grid>
+
+return (
+  <div className="container">
+ <div className="card">
+    <img src="" alt="" className="card__img" />
+    <div className="card__body">
+      <h2 className="card__title"> {branch} semester{key+3}</h2>
+      <p className="card__description"></p>
+      <button className="card__btn" onClick={()=>setSemSelected(key+3)} >click</button>
+    </div>
+  </div>
+  </div>
+ 
+    )
           
           
           
           
           
           
-          )
 })}
 
 
@@ -68,7 +85,28 @@ useEffect(()=>{
        
 
  
- </Grid>
+{/* //  </Grid> */}
+
+</div>  
+
+// {subjectData.map((item, key)=> {
+//   return (
+// <div className="card">
+//   <img src="" alt="" className="card__img" />
+//   <div className="card__body">
+//     <h2 className="card__title"></h2>
+//     <p className="card__description">{branch} semester{key+3}</p>
+//     <button className="card__btn" ></button>
+//   </div>
+// </div>
+//   )
+
+
+
+
+
+
+
 
   );
 };

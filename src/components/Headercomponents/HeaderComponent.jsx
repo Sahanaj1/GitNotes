@@ -29,11 +29,11 @@ console.log("header")
        <DrawerComponent initialState={initialState} navlinks={navlinks} handleDrawerToggler={handleDrawerToggler}/>
    
       
-      {/* <Box className={classes.HeaderContainer}>
-      <img src={Image1} className="img"/>
-        <Typography className={classes.headerTitle} style={{color:"black",paddingRight: "280px"}}>Hello</Typography>
+      
+      {/* <img src={Image1} className="img"/>
+        <Typography className={classes.headerTitle} style={{color:"black",paddingRight: "70px",fontSize:"30px",marginBottom:"-40px",marginTop:"-20px"}}>Welcome to Git Notes.</Typography> */}
      
-      </Box> */}
+      
     
       
     </Box>
